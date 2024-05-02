@@ -1,5 +1,6 @@
 
 from utils.MasterPiece import MasterPiece
+from utils.JSONUtils import JSONUtils
 from utils.iTimer import iTimer
 
 debug = True
@@ -42,4 +43,11 @@ class DownloaderSecuencial:
 
             registers.append(register)
 
-        print_debug("Registros: \n{}".format(str(registers)))
+        print_debug("Agregando descargas al registro.\n")
+        original_register = JSONUtils.read_downloads_register()
+        new_register = original_register
+
+        for register in register:
+            new_register.append(register)
+
+        JSONUtils.write_downloads_register(new_register)
