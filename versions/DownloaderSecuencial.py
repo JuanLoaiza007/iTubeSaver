@@ -44,10 +44,10 @@ class DownloaderSecuencial:
             registers.append(register)
 
         print_debug("Agregando descargas al registro.\n")
-        original_register = JSONUtils.read_downloads_register()
-        new_register = original_register
+        original_registers = JSONUtils.read_downloads_register()
+        new_registers = original_registers
 
-        for register in register:
-            new_register.append(register)
+        for register in registers:
+            new_registers.append(register)
 
-        JSONUtils.write_downloads_register(new_register)
+        JSONUtils.write_downloads_register(new_registers)
