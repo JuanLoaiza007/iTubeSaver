@@ -1,6 +1,12 @@
+# Entorno virtual
 venv
 
+# Caché de python
 *.pyc
 
-*.mp4
+# Archivos multimedia
 *.mp3
+*.mp4
+*.m4a
+*.ytdl
+*.part
