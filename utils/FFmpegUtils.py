@@ -3,6 +3,14 @@
 import os
 import ffmpeg
 
+debug = True
+
+
+def print_debug(message):
+    new_message = "[FFmpegUtils.py]: " + message
+    if debug:
+        print(new_message)
+
 
 class FFmpegUtils:
 
@@ -19,7 +27,7 @@ class FFmpegUtils:
             raise FileNotFoundError(
                 f"El archivo de video '{input_file}' no existe")
         else:
-            print("Archivo encontrado!!!")
+            print_debug("Archivo encontrado!!!")
 
         output_file = "{}.mp3".format(os.path.splitext(input_file)[0])
 

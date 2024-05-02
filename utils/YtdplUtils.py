@@ -4,6 +4,14 @@ import yt_dlp
 import json
 from datetime import datetime
 
+debug = True
+
+
+def print_debug(message):
+    new_message = "[YtdlpUtils.py]: " + message
+    if debug:
+        print(new_message)
+
 
 class YtdlpUtils:
     def limpiar_titulo(titulo):
@@ -32,7 +40,7 @@ class YtdlpUtils:
                 else:
                     return None
         except Exception as e:
-            print("Error al obtener el título:", e)
+            print_debug("Error al obtener el título: {}".format(str(e)))
             return None
 
     @staticmethod
@@ -52,7 +60,8 @@ class YtdlpUtils:
                 }
             return video_info
         except Exception as e:
-            print("Error al obtener información del video:", e)
+            print_debug(
+                "Error al obtener información del video: {}".format(str(e)))
             return None
 
     @staticmethod
@@ -95,7 +104,8 @@ class YtdlpUtils:
             return file_info
 
         except Exception as e:
-            print("Error inesperado durante la descarga:", e)
+            print_debug(
+                "Error inesperado durante la descarga: {}".format(str(e)))
             return None
 
     @staticmethod
@@ -110,9 +120,9 @@ class YtdlpUtils:
             }
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([channel_url])
-            print("Descarga completada correctamente.")
+            print_debug("Descarga completada correctamente.")
         except Exception as e:
-            print("Error durante la descarga:", e)
+            print_debug("Error durante la descarga: {}".format(str(e)))
 
     @staticmethod
     def get_recent_video_urls(channel_name, num_videos=5):
@@ -131,7 +141,8 @@ class YtdlpUtils:
                               for entry in result['entries']]
             return video_urls
         except Exception as e:
-            print("Error al obtener las URL de los videos:", e)
+            print_debug(
+                "Error al obtener las URL de los videos: {}".format(str(e)))
             return None
 
 
