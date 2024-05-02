@@ -1,3 +1,4 @@
+import time
 from utils.MasterPiece import MasterPiece
 
 debug = True
@@ -9,18 +10,43 @@ def print_debug(message):
         print(new_message)
 
 
+class iTimer():
+    def __init__(self):
+        self.start_time = time.time()
+        self.end_time = None
+        print_debug("iTimer (Class): instance started!")
+
+    def end(self):
+        self.end_time = time.time()
+        total_time = self.end_time - self.start_time
+        print_debug(
+            "iTimer (Class): instance end after {:.2f} seconds!".format(total_time))
+
+
 if __name__ == '__main__':
 
-    canal = "@NoCopyrightSounds"
     video_urls = []
     registers = []
 
-    print_debug("Obteniendo ultimos videos.\n")
-    temp_urls = MasterPiece.get_ultimos_videos(canal)
+    canales = ["@NoCopyrightSounds",
+               "@TongoOficial",
+               "@WOSDS3",
+               "@TruenoOficial",
+               "@DubstepuNk",
+               ]
 
-    print_debug("Cargando videos en la cola de videos a descargar.\n")
-    for url in temp_urls:
-        video_urls.append(url)
+    print_debug("Obteniendo ultimos videos.")
+    temporizador = iTimer()
+    for canal in canales:
+        temp_urls = MasterPiece.get_ultimos_videos(canal)
+
+        for url in temp_urls:
+            video_urls.append(url)
+    temporizador.end()
+    print_debug("Ya obtuve los videos.\n\n")
+
+    print_debug(
+        "Hay {} video/s a descargar, son:\n\n{}".format(str(len(video_urls)), str(video_urls)))
 
     print_debug("Iniciando descarga de cola de videos.\n")
     for url in video_urls:
