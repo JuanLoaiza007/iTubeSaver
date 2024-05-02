@@ -31,6 +31,7 @@ class DownloaderSecuencial:
             "Hay {} video/s a descargar, son:\n\n{}".format(str(len(video_urls)), str(video_urls)))
 
         print_debug("Iniciando descarga de cola de videos.\n")
+        temporizador = iTimer()
         for url in video_urls:
             file_info = MasterPiece.descargar_y_convertir(url)
 
@@ -43,7 +44,12 @@ class DownloaderSecuencial:
 
             registers.append(register)
 
+        print_debug("\n\n")
+        print_debug("Todas las descargas han sido finalizadas\n")
+        temporizador.end()
+
         print_debug("Agregando descargas al registro.\n")
+        temporizador = iTimer()
         original_registers = JSONUtils.read_downloads_register()
         new_registers = original_registers
 
@@ -51,3 +57,6 @@ class DownloaderSecuencial:
             new_registers.append(register)
 
         JSONUtils.write_downloads_register(new_registers)
+
+        temporizador.end()
+        print_debug("El programa ha finalizado correctamente.\n")
