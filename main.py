@@ -1,4 +1,5 @@
 from versions.DownloaderSecuencial import DownloaderSecuencial as Secuencial
+from versions.DownloaderMultiproceso import DownloaderMultiproceso as Multiproceso
 
 if __name__ == '__main__':
 
@@ -10,4 +11,6 @@ if __name__ == '__main__':
         "@TruenoOficial",
     ]
 
-    Secuencial.descargar(canales)
+    # Secuencial.descargar(canales)
+    Multiproceso.descargar(canales)
+    
