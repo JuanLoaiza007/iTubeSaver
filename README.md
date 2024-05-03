@@ -6,9 +6,9 @@ iTubeSaver es una aplicación para descargar el audio de videos de YouTube utili
 
 iTubeSaver utiliza las siguientes herramientas:
 
-- [yt-dlp](https://pypi.org/project/yt-dlp/): La version módulo de Python para descargar videos de YouTube.
+- [yt-dlp](https://pypi.org/project/yt-dlp/): Un módulo de Python para descargar videos de YouTube.
+- [FFmpeg](https://ffmpeg.org/): FFmpeg es una suite de software libre que incluye bibliotecas y herramientas para manejar archivos multimedia. La versión para Windows está disponible en el sitio oficial de [FFmpeg](https://ffmpeg.org/download.html#build-windows), en este repositorio se aloja un ejecutable en la raiz del proyecto para usuarios de Windows.
 - [ffmpeg-python](https://pypi.org/project/ffmpeg-python/): Un módulo de Python para interactuar con FFmpeg, una herramienta de línea de comandos para manipular archivos multimedia.
-- [ffmpeg.exe](https://ffmpeg.org/download.html#build-windows): FFmpeg es una suite de software libre que incluye bibliotecas y herramientas para manejar archivos multimedia. La versión para Windows está disponible en el sitio oficial de [FFmpeg](https://ffmpeg.org/).
 
 
 ## Integrantes
@@ -20,7 +20,7 @@ iTubeSaver utiliza las siguientes herramientas:
 ## Requisitos
 **(Solo en Linux)** Instala ffmpeg usando el gestor apt:
 ```
-sudo apt-get install ffmpeg
+sudo apt install ffmpeg
 ```
 
 > [!WARNING]
