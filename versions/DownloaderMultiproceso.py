@@ -20,7 +20,7 @@ class DownloaderMultiproceso:
         print_debug("Obteniendo ultimos videos.")
         temporizador = iTimer()
                 
-        with Pool() as p:
+        with Pool(16) as p:
             # Aqui se retorna una lista de lista con los urls
             video_urls = p.map(MasterPiece.get_ultimos_videos, canales)
             # Aplanando la lista de lista
@@ -42,7 +42,7 @@ class DownloaderMultiproceso:
         print_debug("Iniciando descarga de cola de videos.\n")
         temporizador = iTimer()
         
-        with Pool() as p:
+        with Pool(16) as p:
             registers = p.map(MasterPiece.descargar_y_convertir, video_urls)
         
         '''
