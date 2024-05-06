@@ -1,7 +1,9 @@
+from utils.MailSender import MailSender
 import os
 from utils.FFmpegUtils import FFmpegUtils as converter
 from utils.YtdplUtils import YtdlpUtils as downloader
 
+send_mail = False
 debug = True
 
 
@@ -27,6 +29,13 @@ class MasterPiece:
             "La informacion del video es: {}\n\n".format(str(file_info)))
 
         print_debug("Convirtiendo el video con url {}\n".format(str(video_url)))
+
+        if send_mail:
+            sender = MailSender()
+            mensaje = "Se ha descargado {}".format(
+                str(file_info['titulo_original']))
+            sender.enviar_mensaje(mensaje)
+
         converter.mp4_to_mp3(file_info)
 
         print_debug("Eliminando el archivo .mp4")
