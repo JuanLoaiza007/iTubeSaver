@@ -53,7 +53,8 @@ pip install -r requirements.txt
 
 4. Agrega los **nombres** de los canales en el **main.py**. La forma correcta es **@NombreCanal**
 
-> [!WARNING] > **\*No debe agregar las direcciones url**, solo el **nombre de usuario** del canal como se muestra en la imagen:
+> [!WARNING]
+>  **\*No debe agregar las direcciones url**, solo el **nombre de usuario** del canal como se muestra en la imagen:
 > <img src="https://github.com/JuanLoaiza007/iTubeSaver/assets/116226390/0b132711-eb59-40a0-9d32-cf58ec84da99" width="1000"/>
 
 5. Ejecuta el archivo **main.py** **desde la raiz del proyecto.**
