@@ -1,5 +1,6 @@
 # Entorno virtual
 venv
+*.env
 
 # Caché de python
 *.pyc

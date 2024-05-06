@@ -10,7 +10,6 @@ iTubeSaver utiliza las siguientes herramientas:
 - [FFmpeg](https://ffmpeg.org/): FFmpeg es una suite de software libre que incluye bibliotecas y herramientas para manejar archivos multimedia. La versión para Windows está disponible en el sitio oficial de [FFmpeg](https://ffmpeg.org/download.html#build-windows), en este repositorio se aloja un ejecutable en la raiz del proyecto para usuarios de Windows.
 - [ffmpeg-python](https://pypi.org/project/ffmpeg-python/): Un módulo de Python para interactuar con FFmpeg, una herramienta de línea de comandos para manipular archivos multimedia.
 
-
 ## Integrantes
 
 - Juan David Loaiza Santiago - 2177570 - juan.loaiza.santiago@correounivalle.edu.co
@@ -18,7 +17,9 @@ iTubeSaver utiliza las siguientes herramientas:
 - Julian David Rendon Cardona - 2177387 - julian.david.rendon@correounivalle.edu.co
 
 ## Requisitos
+
 **(Solo en Linux)** Instala ffmpeg usando el gestor apt:
+
 ```
 sudo apt install ffmpeg
 ```
@@ -31,26 +32,38 @@ sudo apt install ffmpeg
 Para usar iTubeSaver, sigue estos pasos:
 
 1. Clona el repositorio:
+
 ```
 git clone https://github.com/JuanLoaiza007/iTubeSaver.git
 ```
 
 2. Crea y activa un entorno virtual. Para crearlo puedes usar:
+
 ```
 python -m venv venv
 ```
+
 Consulta como activarlo según tu sistema operativo.
 
 3. Instala las dependencias
+
 ```
 pip install -r requirements.txt
 ```
 
 4. Agrega los **nombres** de los canales en el **main.py**. La forma correcta es **@NombreCanal**
-   
-> [!WARNING]
-> ***No debe agregar las direcciones url**, solo el **nombre de usuario** del canal como se muestra en la imagen:
+
+> [!WARNING] > **\*No debe agregar las direcciones url**, solo el **nombre de usuario** del canal como se muestra en la imagen:
 > <img src="https://github.com/JuanLoaiza007/iTubeSaver/assets/116226390/0b132711-eb59-40a0-9d32-cf58ec84da99" width="1000"/>
 
-
 5. Ejecuta el archivo **main.py** **desde la raiz del proyecto.**
+
+6. **(Opcional)** Crea un archivo .env en la raiz del proyecto para recibir notificaciones por correo cuando la aplicacion finalice las descargas.
+
+```
+REMITENTE=correo@gmail.com
+DESTINATARIO=otrocorreo@gmail.com
+ASUNTO=Descarga de audio exitosa! | iTubeSaver
+MENSAJE=Mensaje default
+CLAVE_CORREO=clave de gmail desde myaccount.google.com/apppasswords
+```
