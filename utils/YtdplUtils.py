@@ -1,7 +1,7 @@
 import os
 import re
 import yt_dlp
-import json
+from utils.JSONUtils import JSONUtils
 from datetime import datetime
 
 debug = True
@@ -139,7 +139,9 @@ class YtdlpUtils:
                 result = ydl.extract_info(channel_url, download=False)
                 video_urls = [entry['webpage_url']
                               for entry in result['entries']]
+            JSONUtils.write_json("./data/channel_info.json", result)
             return video_urls
+                   
         except Exception as e:
             print_debug(
                 "Error al obtener las URL de los videos: {}".format(str(e)))
