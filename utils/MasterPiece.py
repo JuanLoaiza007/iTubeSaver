@@ -1,3 +1,4 @@
+from utils.MailSender import MailSender
 import os
 from utils.FFmpegUtils import FFmpegUtils as converter
 from utils.YtdplUtils import YtdlpUtils as downloader
@@ -27,7 +28,17 @@ class MasterPiece:
             "La informacion del video es: {}\n\n".format(str(file_info)))
 
         print_debug("Convirtiendo el video con url {}\n".format(str(video_url)))
+
         converter.mp4_to_mp3(file_info)
+
+        sender = MailSender()
+
+        send_mail = sender.checkhealth()
+
+        if send_mail:
+            mensaje = "Se ha descargado {} y convertido a un archivo mp3.\nGracias por usar iTubeSaver".format(
+                str(file_info['titulo_original']))
+            sender.enviar_mensaje(mensaje)
 
         print_debug("Eliminando el archivo .mp4")
         if os.path.exists(file_info['ruta_absoluta']):
