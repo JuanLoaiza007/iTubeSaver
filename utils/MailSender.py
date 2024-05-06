@@ -27,6 +27,9 @@ class MailSender():
         print_debug("Clave correo se ha cargado: {}".format(
             str(self.clave_correo)))
 
+    def checkhealth(self):
+        return self.clave_correo != None
+
     def enviar_mensaje(self, nuevo_mensaje):
 
         self.mensaje = nuevo_mensaje
