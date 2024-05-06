@@ -30,13 +30,13 @@ class MasterPiece:
 
         print_debug("Convirtiendo el video con url {}\n".format(str(video_url)))
 
+        converter.mp4_to_mp3(file_info)
+
         if send_mail:
             sender = MailSender()
-            mensaje = "Se ha descargado {}".format(
+            mensaje = "Se ha descargado {} y convertido a un archivo mp3.\nGracias por usar iTubeSaver".format(
                 str(file_info['titulo_original']))
             sender.enviar_mensaje(mensaje)
-
-        converter.mp4_to_mp3(file_info)
 
         print_debug("Eliminando el archivo .mp4")
         if os.path.exists(file_info['ruta_absoluta']):
